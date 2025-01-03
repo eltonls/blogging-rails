@@ -1,0 +1,39 @@
+<div class="row vw-100 vh-100 overflow-hidden gx-0">
+  <div class="col p-3">
+  <h2>Criar conta</h2>
+  <%= form_with(model: @user, url: signup_path) do |f| %>
+    <% if @user.errors.any? %>
+      <div class="error_messages">
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-group mb-3">
+      <%= f.label :email_address, name: "user[email_address]", class: "form-label" %>
+      <%= f.email_field :email_address, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Criar conta" %>
+    </div>
+  <% end %> 
+  </div>
+
+  <div class="col-6">
+    <%= image_tag "login_hero.jpg", alt: "Description", class: "w-100 h-100" %>
+  </div>
+</div>

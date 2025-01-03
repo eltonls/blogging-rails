@@ -1,11 +1,27 @@
 <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
-<% end %>
-<br>
+  <div class="row vw-100 vh-100 overflow-hidden gx-0">
+    <div class="col-6 p-3">
+      <h2 class="mb-0">
+        Bem-vindo de volta
+      </h2>
+      <small class="text-body-secondary h6 block">Insira seus dados para continuar</small>
+    <%= form_with url: session_path do |form| %>
+      <div class="input-group mb-3 mt-2">
+        <%= form.email_field :email_address, class: "form-control", required: true, autofocus: true, autocomplete: "username", placeholder: "Digite seu email", value: params[:email_address] %>
+      </div>
+      <div class="input-group mb-3">
+        <%= form.password_field :password, class: "form-control", required: true, autocomplete: "current-password", placeholder: "Digite sua senha", maxlength: 72 %>
+      </div>
+      <%= form.submit "Login", class: "btn btn-primary w-100 mb-1" %>
+      <%= link_to "Esqueceu a senha?", new_password_path %>
+      <%= link_to "Ainda não tem uma conta?", signup_path   %>
+    <% end %>
+    </div>
+    <div class="col-6">
+      <%= image_tag "login_hero.jpg", alt: "Description", class: "w-100 h-100" %>
+    </div>
+  </div>
 
-<%= link_to "Forgot password?", new_password_path %>
+

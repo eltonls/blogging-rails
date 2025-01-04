@@ -1,0 +1,37 @@
+<section class="container my-5"> 
+  <h2 class="mb-3">Editar Post</h2>
+  <%= form_with(model: @post, url: "/posts/" + params[:id]) do |f| %>
+    <% if @post.errors.any? %>
+      <div class="error_messages">
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="input-group mb-3">
+      <%= f.label :title, "Título", class: "form-label" %>
+      <%= f.text_field :title, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="input-group mb-3 d-flex flex-col">
+      <%= f.label :content, "Conteudo", class: "form-label" %>
+      <div class="w-100">
+        <%= f.textarea :content, :class => "tinymce" %>
+        <%= tinymce %>
+      </div>
+    </div>
+    
+    <div class="input-group mb-3">
+      <%= f.label :tags, class: "form-label" %>
+      <%= f.text_field :tags, value: @tags_string, placeholder: "Insira as tags separadas por vírgula", class: "form-control w-100 rounded" %>
+    </div>
+    
+    <div class="actions">
+      <%= f.submit "Confirmar Alterações", class: "btn btn-primary" %>
+    </div>
+  <% end %> 
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<section class="container my-5">
+  <header class="d-flex justify-content-between align-items-baseline">
+    <h2 class="text-wrap text-uppercase fw-bold w-75"><%= @post.title %></h2>
+    <% if @post.user == current_user  %>
+      <div class="d-flex justify-content-between">
+        <%= button_to "Deletar", @post, method: :delete, data: { turbo_confirm: "Tem certeza?" }, class: "btn btn-outline-danger me-2" %>
+        <%= link_to "Editar Post", edit_post_path , class: "btn btn-info" %>
+      </div>
+    <% end %>
+  </header>
+  <p>
+    <% if @post.user == current_user  %>
+      <p class="w-auto text-nowrap" if post.user == current_user>
+        <span class="fw-bold">Autor:</span> Você
+      </p>
+    <% end %>
+    <% if @post.user != current_user  %>
+      <p class="w-auto text-nowrap" if post.user != current_user>
+      <span class="fw-bold">Autor:</span> <%= @post.user.first_name + " " + @post.user.last_name %></p>
+    <% end %>
+  </p>
+  <div class="d-flex flex-row mb-2">
+    <% @post.tags.each do |tag| %>
+        <span class="badge text-bg-info w-auto me-1">
+          <%= tag.name %>
+        </span>
+    <% end %>
+  </div>
+  <div class="row post-content">
+    <%= simple_format(@post.content) %>
+  </div>
+</section>
+

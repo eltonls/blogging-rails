@@ -309,6 +309,8 @@ GEM
     thruster (0.1.9-aarch64-linux)
     thruster (0.1.9-x86_64-linux)
     timeout (0.4.3)
+    tinymce-rails (7.6.0)
+      railties (>= 3.1.1)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -363,6 +365,7 @@ DEPENDENCIES
   solid_queue
   stimulus-rails
   thruster
+  tinymce-rails
   turbo-rails
   tzinfo-data
   web-console

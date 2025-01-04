@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_30_145548) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_04_223013) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -53,12 +53,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_145548) do
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
-    t.bigint "post_id", null: false
-    t.bigint "tag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_tags_on_post_id"
-    t.index ["tag_id"], name: "index_tags_on_tag_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,6 +62,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_145548) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
@@ -75,6 +73,4 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_145548) do
   add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
   add_foreign_key "sessions", "users"
-  add_foreign_key "tags", "posts"
-  add_foreign_key "tags", "tags"
 end

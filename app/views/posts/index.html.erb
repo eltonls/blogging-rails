@@ -1,0 +1,30 @@
+<section class="container my-5"> 
+  <h1 class="fw-medium text-uppercase">Blogging</h1>
+
+  <ul class="list-group mb-3">
+    <% @posts.each do |post|  %>
+      <li class="d-flex align-items-center">
+        <span class="w-auto text-nowrap me-2"><%= post.created_at.to_formatted_s(:short) %></span>
+        <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-2" %>
+        <% if post.user == current_user  %>
+          <span class="w-auto text-nowrap" if post.user == current_user>Autor: Você</span>
+        <% end %>
+        <% if post.user != current_user  %>
+          <span class="w-auto text-nowrap" if post.user != current_user>Autor: <%= post.user.first_name + " " + post.user.last_name %></span>
+        <% end %>
+      </li>
+    <% end  %>
+  </ul>
+  <nav aria-label="Posts navigations">
+    <ul class="pagination overflow-hidden">
+      <%= link_to "Anterior", posts_path(page: params[:page].to_i - 1), class: "page-link" if @page != 0 %>
+      <% 1.upto(@pages) do |page_number| %>
+        <li class="page-item rounded-5">
+          <%= link_to page_number, posts_path(page: page_number - 1), class: "page-link" %>
+        </li>
+      <% end %>
+      <%= link_to "Próximo", posts_path(page: params[:page].to_i + 1), class: "page-link" if (@page + 1) < @pages %>
+    </ul>
+  </nav>
+</section>
+

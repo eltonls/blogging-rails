@@ -7,10 +7,13 @@
         <span class="w-auto text-nowrap me-2"><%= post.created_at.to_formatted_s(:short) %></span>
         <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-2" %>
         <% if post.user == current_user  %>
-          <span class="w-auto text-nowrap" if post.user == current_user>Autor: Você</span>
+          <span class="w-auto text-nowrap" if post.user == current_user>
+            <%= t("posts.author") %>: Você
+          </span>
         <% end %>
         <% if post.user != current_user  %>
-          <span class="w-auto text-nowrap" if post.user != current_user>Autor: <%= post.user.first_name + " " + post.user.last_name %></span>
+          <span class="w-auto text-nowrap" if post.user != current_user>
+           <%= t("posts.author") %>: <%= post.user.first_name + " " + post.user.last_name %></span>
         <% end %>
       </li>
     <% end  %>

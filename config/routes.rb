@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get "/signup", to: "users#new", as: :signup_path
   post "/signup", to: "users#create"
+  get "/profile", to: "users#show", as: :profile_path
 
   get "/login", to: "sessions#new", as: :login_path
 

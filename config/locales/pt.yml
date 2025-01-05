@@ -1,4 +1,13 @@
 pt:
+  navbar:
+    create_post: "Criar Post"
+    login: "Fazer Login"
+    create_account: "Criar Conta"
+    logoff: "Sair"
+  posts:
+    author: "Autor"
+  sessions:
+      back: "Voltar"
   alerts:
     comments:
       comment_saved: "Comentário criado com sucesso!"

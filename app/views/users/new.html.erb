@@ -1,5 +1,6 @@
 <div class="row vw-100 vh-100 overflow-hidden gx-0">
   <div class="col p-3">
+  <%= link_to t("sessions.back"), :root %>
   <h2>Criar conta</h2>
   <%= form_with(model: @user, url: signup_path) do |f| %>
     <% if @user.errors.any? %>

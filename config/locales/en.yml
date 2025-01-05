@@ -28,6 +28,15 @@
 #       enabled: "ON"
 
 en:
+  navbar:
+    create_post: "Create Post"
+    login: "Login"
+    create_account: "Create Account"
+    logoff: "Logoff"
+  posts:
+    author: "Author"
+  sessions:
+    back: "Go Back"
   alerts: 
     comments:
       comment_saved: "Comment create successfully!"

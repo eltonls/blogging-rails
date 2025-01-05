@@ -1,8 +1,7 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
   <div class="row vw-100 vh-100 overflow-hidden gx-0">
     <div class="col-6 p-3">
+      <%= link_to t("sessions.back"), :root %>
       <h2 class="mb-0">
         Bem-vindo de volta
       </h2>

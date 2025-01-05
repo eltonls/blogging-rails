@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#new", as: :login_path
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [ :create ]
+  end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

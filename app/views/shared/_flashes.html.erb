@@ -1,0 +1,14 @@
+<% if notice %>
+  <div class="alert alert-info alert-dismissible fade show m-1 d-flex justify-content-between align-items-center" role="alert" 
+  data-controller="flash-alerts" data-flash-alerts-dismiss-after-value="2000">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if alert %>
+  <div class="alert alert-warning alert-dismissible fade show m-1 d-flex justify-content-between align-items-center" role="alert" 
+    data-controller="flash-alerts" data-flash-alerts-dismiss-after-value="2500">
+    <%= alert %>
+  </div>
+<% end %>
+

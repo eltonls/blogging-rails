@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.includes(:tags, :user).find_by(id: params[:id])
-    puts @post
+    @comments = @post.comments.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def new

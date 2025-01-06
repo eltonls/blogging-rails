@@ -1,0 +1,57 @@
+pt:
+  navbar:
+    create_post: "Criar Post"
+    login: "Fazer Login"
+    create_account: "Criar Conta"
+    logoff: "Sair"
+  posts:
+    author: "Autor"
+    author_you: "Você"
+    search_placeholder: "Pesquise por tag ou título"
+  sessions:
+      back: "Voltar"
+  users:
+    profile:
+      heading: "Perfil"
+      edit: "Editar Perfil"
+      my_posts: "Meus Posts"
+    edit:
+      heading: "Edit Profile"
+  confirmation:
+    alerts:
+      check_email: "Por favor, cheque o seu email para confirmar sua criação de conta"
+      success: "Conta verificada com sucesso"
+      fail: "Algo deu errado ao confirmar sua conta, por favor refaça seu cadastro"
+  mailer:
+    user:
+      confirmation_subject: "Confirmação de Conta"
+      password_reset_subject: "Redefinição de Senha"
+  passwords:
+    forms:
+      update_password_title: "Criar nova senha"
+      update_password_field: "Digite uma nova senha"
+      update_password_confirm_field: "Confirme sua nova senha"
+      send_reset_instructions: "Enviar Instruções de Recuperação"
+  alerts:
+    comments:
+      comment_saved: "Comentário criado com sucesso!"
+      comment_save_error: "Erro na criação de comentário, tente de novo"
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "&hellip;"
+  buttons:
+    save: "Salvar"
+    search: "Pesquisar"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum(a) %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>todas %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}–%{last}</b> de <b>%{total}</b> no total"

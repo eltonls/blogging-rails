@@ -1,0 +1,33 @@
+<div class="container my-5">
+  <h1><%= t("users.profile.heading") %></h1>
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h5>
+          <p class="card-text">
+            <span class="fw-bold">Email: </span>
+            <%= @user.email_address %>
+          </p>
+          <div class="d-flex justify-content-end">
+            <%= link_to t("users.profile.edit"), :profile_edit_path, class: "btn btn-primary"  %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <h3 class="mt-3"><%= t("users.profile.my_posts") %></h3>
+      <ul class="list-group mb-3">
+        <% @posts.each do |post|  %>
+          <li class="d-flex align-items-center">
+            <span class="w-auto text-nowrap me-2"><%= post.created_at.to_formatted_s(:short) %></span>
+            <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-2" %>
+          </li>
+        <% end  %>
+        <%= paginate @posts, theme: "bootstrap-5" %>
+      </ul>
+    </div>
+  </div>
+</div>

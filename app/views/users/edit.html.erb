@@ -1,0 +1,42 @@
+<div class="container my-5">
+  <h1 class="fw-bold"><%= t("users.edit.heading") %></h1>
+
+  <%= form_with model: @user, url: :user_update_path, method: :put do |f| %>
+    <div class="input-group mb-3">
+      <%= f.label :email_address, name: "user[email_address]", class: "form-label" %>
+      <%= f.email_field :email_address, class: "form-control w-100 rounded" %>
+    </div>
+    
+    <div class="input-group mb-3">
+      <%= f.label :first_name, name: "user[first_name]", class: "form-label" %>
+      <%= f.text_field :first_name, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.label :last_name, name: "user[last_name]", class: "form-label" %>
+      <%= f.text_field :last_name, class: "form-control w-100 rounded" %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.label :password, class: "form-label" %>
+      <%= f.password_field :password, 
+        placeholder: t("passwords.forms.update_password_field"), 
+        autocomplete: "new-password", 
+        maxlength: 72,
+        class: "form-control w-100 rounded"
+      %>
+    </div>
+
+    <div class="input-group mb-3">
+      <%= f.label :password_confirmation, class: "form-label" %>
+      <%= f.password_field :password_confirmation, 
+        placeholder: t("passwords.forms.update_password_confirm_field"), 
+        autocomplete: "new-password", 
+        maxlength: 72,
+        class: "form-control w-100 rounded"
+      %>
+    </div>
+
+    <%= f.submit t("buttons.save"), class: "btn btn-primary" %>
+  <% end %>
+</div>

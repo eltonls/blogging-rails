@@ -1,2 +1,16 @@
+@import './colors';
+@import './typography';
+@import "./layout/header";
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.input {
+  padding: 20px;
+}
+
+.post-content {
+  li {
+    list-style-position: inside;
+  }
+}

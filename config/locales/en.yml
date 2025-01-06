@@ -28,4 +28,59 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  navbar:
+    create_post: "Create Post"
+    login: "Login"
+    create_account: "Create Account"
+    logoff: "Logoff"
+  posts:
+    author: "Author"
+    author_you: "You"
+    search_placeholder: "Search by tag or title"
+  sessions:
+    back: "Go Back"
+  users:
+    profile:
+      heading: "Profile"
+      edit: "Edit Profile"
+      my_posts: "My Posts"
+    edit:
+      heading: "Edit Profile"
+  confirmation:
+    alerts:
+      check_email: "Please, check your email to confirm your new account"
+      success: "Account sucessfully verified"
+      fail: "Something went wrong when confirming your account, please signup again"
+  mailer:
+    user:
+      confirmation_subject: "Account Confirmation"
+      password_reset_subject: "Password Reset"
+  passwords:
+    forms:
+      update_password_title: "Update Your Password"
+      update_password_field: "Enter a new password"
+      update_password_confirm_field: "Confirm your new password"
+      send_reset_instructions: "Send Reset Instructions"
+  alerts: 
+    comments:
+      comment_saved: "Comment create successfully!"
+      comment_save_error: "Comment creation error, try again"
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  buttons:
+    save: "Save"
+    search: "Search"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}–%{last}</b> of <b>%{total}</b> in total"

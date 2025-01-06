@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top border-bottom border-body bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <%= image_tag "logo.png", alt: "Description", class: "", id: "nav-logo" %>
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <% if current_user == nil %>
+          <li class="nav-item">
+            <%= link_to t("navbar.login"), :login_path, class: "nav-link px-3"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t("navbar.create_account"), :signup_path, class: "nav-link px-3"  %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to current_user.first_name + " " + current_user.last_name, :profile_path, class: "nav-link px-3"  %>
+          </li>
+          <li class="nav-item">
+            <%= link_to t("navbar.create_post"), :new_post, class: "nav-link px-3"  %>
+          </li>
+          <li class="nav-item">
+            <%= button_to t("navbar.logoff"), "/session", method: :delete, class: "btn btn-outline-danger mx-3" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

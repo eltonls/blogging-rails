@@ -1,0 +1,7 @@
+<h1>Welcome <%= @user.email_address %>!</h1>
+
+<p>Please confirm your email by clicking the link below:</p>
+
+<%= link_to 'Confirm my email', @confirmation_url %>
+
+<p>This link will expire in 24 hours.</p>

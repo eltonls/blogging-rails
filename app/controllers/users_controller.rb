@@ -17,7 +17,29 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
+    @user = User.includes(:posts).find(current_user.id)
+    @posts = @user.posts.order(created_at: :desc).page(params[:page]).per(3)
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = User.find(current_user[:id])
+
+    last_email = @user.email_address
+
+    if @user.update(allowed_user_params)
+      @user.generate_confirmation_token
+      if last_email != @user.email_address
+        UserMailer.with(user: @user).confirmation_email.deliver_now!
+      end
+
+      redirect_to :profile_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private

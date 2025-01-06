@@ -8,6 +8,13 @@ pt:
     author: "Autor"
   sessions:
       back: "Voltar"
+  users:
+    profile:
+      heading: "Perfil"
+      edit: "Editar Perfil"
+      my_posts: "Meus Posts"
+    edit:
+      heading: "Edit Profile"
   confirmation:
     alerts:
       check_email: "Por favor, cheque o seu email para confirmar sua criação de conta"

@@ -35,6 +35,8 @@ en:
     logoff: "Logoff"
   posts:
     author: "Author"
+    author_you: "You"
+    search_placeholder: "Search by tag or title"
   sessions:
     back: "Go Back"
   users:
@@ -72,6 +74,7 @@ en:
       truncate: "&hellip;"
   buttons:
     save: "Save"
+    search: "Search"
   helpers:
     page_entries_info:
       one_page:

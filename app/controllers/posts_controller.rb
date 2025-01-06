@@ -1,9 +1,16 @@
 class PostsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
-  before_action :set_post, only: %i[ show edit update destroy ]
+  # before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
     @posts = Post.includes(:tags, :user).order(created_at: :desc).page(params[:page]).per(3)
+
+    if params[:query]
+      @posts = @posts.joins(:tags).where("title ILIKE ? OR tags.name ILIKE ?",
+        "%#{params[:query]}%",
+        "%#{params[:query]}%"
+      ).distinct
+    end
   end
 
   def show

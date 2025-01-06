@@ -1,5 +1,15 @@
 <section class="container my-5"> 
   <h1 class="fw-medium text-uppercase">Blogging</h1>
+  
+  <%= form_with url: posts_path, method: :get do |form| %>
+    <%= form.search_field :query, 
+      autofocus: true, 
+      placeholder: t("posts.search_placeholder"), 
+      value: params[:query],
+      class: "form-control mb-3"
+    %>
+    <%= form.submit t("buttons.search"), class: "btn btn-outline-secondary mb-1" %>
+  <% end %>
 
   <ul class="list-group mb-3">
     <% @posts.each do |post|  %>
@@ -8,7 +18,7 @@
         <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-2" %>
         <% if post.user == current_user  %>
           <span class="w-auto text-nowrap" if post.user == current_user>
-            <%= t("posts.author") %>: Você
+            <%= t("posts.author") %>: <%= t("posts.author_you") %>
           </span>
         <% end %>
         <% if post.user != current_user  %>

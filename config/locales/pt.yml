@@ -6,6 +6,8 @@ pt:
     logoff: "Sair"
   posts:
     author: "Autor"
+    author_you: "Você"
+    search_placeholder: "Pesquise por tag ou título"
   sessions:
       back: "Voltar"
   users:
@@ -43,6 +45,7 @@ pt:
       truncate: "&hellip;"
   buttons:
     save: "Salvar"
+    search: "Pesquisar"
   helpers:
     page_entries_info:
       one_page:

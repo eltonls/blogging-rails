@@ -22,7 +22,6 @@ Rails.application.configure do
     host: "https://blogging-rails.onrender.com/",
     protocol: "https"
   }
-  
   # Eager load code on boot for better performance and memory savings (ignored by Rake tasks).
   config.eager_load = true
 

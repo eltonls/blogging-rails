@@ -23,6 +23,7 @@ default: &default
   username: <%= ENV["DATABASE_USER"] %>
   password: <%= ENV["DATABASE_PASSWORD"] %>
 
+
 development:
   <<: *default
   database: blogging_development

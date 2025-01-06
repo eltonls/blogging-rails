@@ -17,6 +17,12 @@ Rails.application.configure do
     enable_starttls_auto: true
   }
 
+  # Setting the host for mailer templates
+  config.action_mailer.default_url_options = {
+    host: "https://blogging-rails.onrender.com/",
+    protocol: "https"
+  }
+  
   # Eager load code on boot for better performance and memory savings (ignored by Rake tasks).
   config.eager_load = true
 
@@ -67,9 +73,6 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
-
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "example.com" }
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {

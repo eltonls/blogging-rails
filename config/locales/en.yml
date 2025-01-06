@@ -37,6 +37,21 @@ en:
     author: "Author"
   sessions:
     back: "Go Back"
+  confirmation:
+    alerts:
+      check_email: "Please, check your email to confirm your new account"
+      success: "Account sucessfully verified"
+      fail: "Something went wrong when confirming your account, please signup again"
+  mailer:
+    user:
+      confirmation_subject: "Account Confirmation"
+      password_reset_subject: "Password Reset"
+  passwords:
+    forms:
+      update_password_title: "Update Your Password"
+      update_password_field: "Enter a new password"
+      update_password_confirm_field: "Confirm your new password"
+      send_reset_instructions: "Send Reset Instructions"
   alerts: 
     comments:
       comment_saved: "Comment create successfully!"
@@ -48,6 +63,8 @@ en:
       previous: "&lsaquo; Prev"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+  buttons:
+    save: "Save"
   helpers:
     page_entries_info:
       one_page:

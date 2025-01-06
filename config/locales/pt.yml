@@ -8,6 +8,21 @@ pt:
     author: "Autor"
   sessions:
       back: "Voltar"
+  confirmation:
+    alerts:
+      check_email: "Por favor, cheque o seu email para confirmar sua criação de conta"
+      success: "Conta verificada com sucesso"
+      fail: "Algo deu errado ao confirmar sua conta, por favor refaça seu cadastro"
+  mailer:
+    user:
+      confirmation_subject: "Confirmação de Conta"
+      password_reset_subject: "Redefinição de Senha"
+  passwords:
+    forms:
+      update_password_title: "Criar nova senha"
+      update_password_field: "Digite uma nova senha"
+      update_password_confirm_field: "Confirme sua nova senha"
+      send_reset_instructions: "Enviar Instruções de Recuperação"
   alerts:
     comments:
       comment_saved: "Comentário criado com sucesso!"
@@ -19,6 +34,8 @@ pt:
       previous: "&lsaquo; Anterior"
       next: "Próxima &rsaquo;"
       truncate: "&hellip;"
+  buttons:
+    save: "Salvar"
   helpers:
     page_entries_info:
       one_page:

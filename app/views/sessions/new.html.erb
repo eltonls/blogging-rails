@@ -14,7 +14,7 @@
         <%= form.password_field :password, class: "form-control", required: true, autocomplete: "current-password", placeholder: "Digite sua senha", maxlength: 72 %>
       </div>
       <%= form.submit "Login", class: "btn btn-primary w-100 mb-1" %>
-      <%= link_to "Esqueceu a senha?", new_password_path %>
+      <%= link_to "Esqueceu a senha?", new_passwords_path %>
       <%= link_to "Ainda não tem uma conta?", signup_path   %>
     <% end %>
     </div>

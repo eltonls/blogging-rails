@@ -3,6 +3,17 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # SMTP
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.mailersend.net",
+    port: 587,
+    user_name: ENV["SMTP_USER"],
+    password: ENV["SMTP_PASSWORD"],
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
+
   # Make code changes take effect immediately without server restart.
   config.enable_reloading = true
 

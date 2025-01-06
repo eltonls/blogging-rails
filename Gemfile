@@ -23,6 +23,8 @@ gem "tinymce-rails"
 # Pagination
 gem "kaminari"
 gem "bootstrap5-kaminari-views"
+# Env
+gem "dotenv-rails", groups: [ :development, :test ]
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"

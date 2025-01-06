@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resource :session
-  resources :passwords, param: :token
+  resource :passwords, only: [ :new, :create, :edit, :update ]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   root "posts#index"
@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show", as: :profile_path
 
   get "/login", to: "sessions#new", as: :login_path
+
+  get "/confirm_email/:token", to: "confirmation#confirm", as: :confirm_email
 
   resources :posts do
     resources :comments, only: [ :create ]

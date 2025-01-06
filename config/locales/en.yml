@@ -37,6 +37,8 @@ en:
     author: "Author"
     author_you: "You"
     search_placeholder: "Search by tag or title"
+  comments:
+    author_anonymous: "Anonymous"
   sessions:
     back: "Go Back"
   users:

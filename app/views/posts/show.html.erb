@@ -38,7 +38,7 @@
         <div class="rounded-2 my-2 p-2">
           <p>
             <% if comment.user == nil  %>
-              <strong>Anonimo</strong> 
+              <strong><%= t("comments.author_anonymous") %></strong> 
             <% else  %>
               <strong class="border-b-2"><%= comment.user.first_name %> <%= comment.user.last_name %></strong> 
             <% end %>

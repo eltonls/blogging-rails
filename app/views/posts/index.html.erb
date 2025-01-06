@@ -8,14 +8,14 @@
       value: params[:query],
       class: "form-control mb-3"
     %>
-    <%= form.submit t("buttons.search"), class: "btn btn-outline-secondary mb-1" %>
+    <%= form.submit t("buttons.search"), class: "btn btn-primary mb-1" %>
   <% end %>
 
   <ul class="list-group mb-3">
     <% @posts.each do |post|  %>
-      <li class="d-flex align-items-center">
+      <li class="d-flex flex-column flex-md-row align-items-start align-items-md-center border-bottom mb-3">
         <span class="w-auto text-nowrap me-2"><%= post.created_at.to_formatted_s(:short) %></span>
-        <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-2" %>
+        <%= link_to post.title, post, class: "list-group-item list-group-item-action border border-0 text-wrap me-md-2 px-0 px-md-2" %>
         <% if post.user == current_user  %>
           <span class="w-auto text-nowrap" if post.user == current_user>
             <%= t("posts.author") %>: <%= t("posts.author_you") %>

@@ -3,12 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @page = params[:page].to_i || 1
-    @per_page = 3
-    offset = (@page) * @per_page
-    @posts = Post.includes(:tags, :user).limit(@per_page).offset(offset).order(created_at: :desc)
-    @total = Post.all.count
-    @pages = (@total.to_f / @per_page.to_f).ceil
+    @posts = Post.includes(:tags, :user).order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def show

@@ -16,10 +16,8 @@ class User < ApplicationRecord
   end
 
   def generate_confirmation_token
-    Rails.logger.debug "GENERATING new token"
     self.confirmation_token = SecureRandom.urlsafe_base64
     self.confirmation_sent_at = Time.current
-    Rails.logger.debug "NEW token generated: #{password_reset_token}"
   end
 
   def generate_password_reset_token

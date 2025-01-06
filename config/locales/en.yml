@@ -37,6 +37,13 @@ en:
     author: "Author"
   sessions:
     back: "Go Back"
+  users:
+    profile:
+      heading: "Profile"
+      edit: "Edit Profile"
+      my_posts: "My Posts"
+    edit:
+      heading: "Edit Profile"
   confirmation:
     alerts:
       check_email: "Please, check your email to confirm your new account"

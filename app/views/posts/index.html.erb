@@ -19,15 +19,7 @@
     <% end  %>
   </ul>
   <nav aria-label="Posts navigations">
-    <ul class="pagination overflow-hidden">
-      <%= link_to "Anterior", posts_path(page: params[:page].to_i - 1), class: "page-link" if @page != 0 %>
-      <% 1.upto(@pages) do |page_number| %>
-        <li class="page-item rounded-5">
-          <%= link_to page_number, posts_path(page: page_number - 1), class: "page-link" %>
-        </li>
-      <% end %>
-      <%= link_to "Próximo", posts_path(page: params[:page].to_i + 1), class: "page-link" if (@page + 1) < @pages %>
-    </ul>
+    <%= paginate @posts, theme: "bootstrap-5" %>
   </nav>
 </section>
 

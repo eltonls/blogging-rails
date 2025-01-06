@@ -9,7 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(allowed_user_params)
 
     if @user.save
-      redirect_to new_session_path
+      UserMailer.with(user: @user).confirmation_email.deliver_now!
+      redirect_to root_path, notice: t("confirmation.alerts.check_email")
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,6 +23,6 @@ class UsersController < ApplicationController
   private
 
   def allowed_user_params
-    params.expect(user: [ :email_address, :password, :password_confirmation ])
+    params.expect(user: [ :email_address, :first_name, :last_name, :password, :password_confirmation ])
   end
 end

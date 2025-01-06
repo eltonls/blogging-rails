@@ -1,33 +1,47 @@
 class PasswordsController < ApplicationController
-  allow_unauthenticated_access
-  before_action :set_user_by_token, only: %i[ edit update ]
-
   def new
   end
 
   def create
-    if user = User.find_by(email_address: params[:email_address])
-      PasswordsMailer.reset(user).deliver_later
-    end
+    user = User.find_by(email_address: params[:email_address])
+    if user
+      # Store the raw token
+      raw_token = user.generate_password_reset_token
 
-    redirect_to new_session_path, notice: "Password reset instructions sent (if user with that email address exists)."
+      # Pass the raw token to mailer
+      UserMailer.password_reset(user, raw_token).deliver_now!
+      redirect_to root_path, notice: "Email sent with password reset instructions"
+    else
+      redirect_to :new_password, alert: "Email address not found"
+    end
   end
 
   def edit
+    @user = User.find_by(password_reset_token: params[:token])
+    if @user.password_reset_expired?
+      redirect_to new_password_reset_path, alert: "Password reset has expired"
+    end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, alert: "Invalid reset token"
   end
 
   def update
-    if @user.update(params.permit(:password, :password_confirmation))
-      redirect_to new_session_path, notice: "Password has been reset."
+    Rails.logger.debug "Params received in update: #{params.inspect}"
+    @user = User.find_by(password_reset_token: params[:token])
+
+    if @user.password_reset_expired?
+      redirect_to new_password_reset_path, alert: "Password reset has expired"
+    elsif @user.update(password_params)
+      @user.update(password_reset_token: nil)
+      redirect_to :login_path, notice: "Password has been reset"
     else
-      redirect_to edit_password_path(params[:token]), alert: "Passwords did not match."
+      render :edit
     end
   end
 
   private
-    def set_user_by_token
-      @user = User.find_by_password_reset_token!(params[:token])
-    rescue ActiveSupport::MessageVerifier::InvalidSignature
-      redirect_to new_password_path, alert: "Password reset link is invalid or has expired."
-    end
+
+  def password_params
+    params.expect(user: [ :email_address, :first_name, :last_name, :password, :password_confirmation ])
+  end
 end

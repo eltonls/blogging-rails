@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   allow_unauthenticated_access only: %i[ index show ]
-  # before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
     @posts = Post.includes(:tags, :user).order(created_at: :desc).page(params[:page]).per(3)
